@@ -1,0 +1,95 @@
+<html>
+ <head> 
+<title> flightdelay </title> 
+<style>
+        body {
+            background-image:url("{{url_for('static',filename="turboprop.jpg")}}");  
+             background-repeat:none;
+             background-size:cover; 
+            
+        }
+        form {
+           // background-image:url("{{url_for('static',filename="turboprop.jpg")}}"); 
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        input[type="text"], select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style> </head> 
+
+<body>
+ 
+
+<form action="{{ url_for('predict')}}" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="month">Month:</label>
+    <input type="text" id="month" name="month"><br>
+
+    <label for="dayofmonth">Day of Month:</label>
+    <input type="text" id="dayofmonth" name="dayofmonth"><br>
+
+    <label for="dayofweek">Day of Week:</label>
+    <input type="text" id="dayofweek" name="dayofweek"><br>
+
+    <label for="origin">Origin:</label>
+    <select id="origin" name="origin">
+        <option value="msp">MSP</option>
+        <option value="dtw">DTW</option>
+        <option value="jfk">JFK</option>
+        <option value="sea">SEA</option>
+        <option value="alt">ALT</option>
+    </select><br>
+
+    <label for="destination">Destination:</label>
+    <select id="destination" name="destination">
+        <option value="msp">MSP</option>
+        <option value="dtw">DTW</option>
+        <option value="jfk">JFK</option>
+        <option value="sea">SEA</option>
+        <option value="alt">ALT</option>
+    </select><br>
+
+    <label for="dept">Departure Time:</label>
+    <input type="text" id="dept" name="dept"><br>
+
+    <label for="arrtime">Arrival Time:</label>
+    <input type="text" id="arrtime" name="arrtime"><br>
+
+    <label for="actdept">Actual Departure Time:</label>
+    <input type="text" id="actdept" name="actdept"><br>
+
+    <input type="submit" value="Submit">
+</form>  
+
+</body>
+ </html>
+
